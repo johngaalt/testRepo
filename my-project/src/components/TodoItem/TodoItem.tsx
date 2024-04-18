@@ -1,17 +1,16 @@
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
-import { Tasks } from "../TodoItem.types";
 import { Button, Stack } from "@mui/material";
+import { TodoItemProps } from "../TodoItem.types";
 
-function TodoItem() {
-  const [tasks, setTasks] = useState<Tasks[]>([]);
+function TodoItem({ tasks, setTasks }: TodoItemProps) {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTask = {
-      id: Date.now(),
+      id: tasks.length + 1,
       text: inputValue,
       isCompleted: false,
       isActive: true,
