@@ -1,10 +1,10 @@
 import "./App.css";
-import Input from "./components/Input/Input";
+import TodoItem from "./components/TodoItem/TodoItem";
 
 function App() {
   return (
     <>
-      <Input />
+      <TodoItem />
     </>
   );
 }
