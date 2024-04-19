@@ -15,7 +15,6 @@ import { TodoListProps } from "./TodoList.types";
 function TodoList({ tasks, setTasks }: TodoListProps) {
   const handleToggle = (task: Task) => {
     const updatedTasks = tasks.map((t) => {
-      console.log("t.id:", t.id, "task.id:", task.id);
       if (t.id === task.id) {
         return { ...t, completed: !t.isCompleted };
       }
