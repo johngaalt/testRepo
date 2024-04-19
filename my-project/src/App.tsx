@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import TodoItem from "./components/TodoItem/TodoItem";
-import { Tasks } from "./components/TodoItem.types";
+import { Task } from "./components/TodoItem.types";
 import TodoList from "./components/TodoList/TodoList";
 
 function App() {
-  const [tasks, setTasks] = useState<Tasks[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   return (
     <>

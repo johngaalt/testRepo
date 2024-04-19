@@ -1,6 +1,6 @@
-import { Tasks } from "../TodoItem.types";
+import { Task } from "../TodoItem.types";
 
 export interface TodoListProps {
-  tasks: Tasks[];
-  setTasks: React.Dispatch<React.SetStateAction<Tasks[]>>;
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }

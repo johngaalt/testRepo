@@ -1,11 +1,11 @@
-export interface Tasks {
+export interface Task {
   id: number;
   text: string;
   isCompleted: boolean;
   isActive: boolean;
 }
 export interface TodoItemProps {
-  tasks: Tasks[];
-  setTasks: React.Dispatch<React.SetStateAction<Tasks[]>>;
-  task?: Tasks;
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  task?: Task;
 }

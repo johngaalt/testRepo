@@ -1,17 +1,21 @@
 import {
   Checkbox,
+  IconButton,
   List,
   ListItem,
   ListItemIcon,
+  ListItemSecondaryAction,
   ListItemText,
   Stack,
 } from "@mui/material";
-import { Tasks } from "../TodoItem.types";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Task } from "../TodoItem.types";
 import { TodoListProps } from "./TodoList.types";
 
 function TodoList({ tasks, setTasks }: TodoListProps) {
-  const handleToggle = (task: Tasks) => {
+  const handleToggle = (task: Task) => {
     const updatedTasks = tasks.map((t) => {
+      console.log("t.id:", t.id, "task.id:", task.id);
       if (t.id === task.id) {
         return { ...t, completed: !t.isCompleted };
       }
@@ -20,7 +24,7 @@ function TodoList({ tasks, setTasks }: TodoListProps) {
     setTasks(updatedTasks);
   };
 
-  const handleDelete = (task: Tasks) => {
+  const handleDelete = (task: Task) => {
     const updatedTasks = tasks.filter((t) => t.id !== task.id);
     setTasks(updatedTasks);
   };
@@ -47,6 +51,15 @@ function TodoList({ tasks, setTasks }: TodoListProps) {
                 id={`checkbox-list-label-${task.id}`}
                 primary={task.text}
               />
+              <ListItemSecondaryAction>
+                <IconButton
+                  edge="end"
+                  aria-label="delete"
+                  onClick={() => handleDelete(task)}
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
             </ListItem>
           ))}
         </List>
