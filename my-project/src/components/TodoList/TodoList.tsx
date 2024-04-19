@@ -9,25 +9,16 @@ import {
   Stack,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Task } from "../TodoItem.types";
 import { TodoListProps } from "./TodoList.types";
 
-function TodoList({ tasks, setTasks }: TodoListProps) {
-  const handleToggle = (task: Task) => {
-    const updatedTasks = tasks.map((t) => {
-      if (t.id === task.id) {
-        return { ...t, isCompleted: !t.isCompleted };
-      }
-      return t;
-    });
-    setTasks(updatedTasks);
-  };
-
-  const handleDelete = (task: Task) => {
-    const updatedTasks = tasks.filter((t) => t.id !== task.id);
-    setTasks(updatedTasks);
-  };
-
+function TodoList({
+  activeTasks: tasks,
+  setActiveTasks: setActiveTasks,
+  onToggle: handleToggle,
+  onDelete: handleDelete,
+  setDoneTasks: setDoneTasks,
+  doneTasks: doneTasks,
+}: TodoListProps) {
   return (
     <>
       <Stack display="flex" direction="column" alignItems="center">
