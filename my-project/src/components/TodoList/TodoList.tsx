@@ -16,7 +16,7 @@ function TodoList({ tasks, setTasks }: TodoListProps) {
   const handleToggle = (task: Task) => {
     const updatedTasks = tasks.map((t) => {
       if (t.id === task.id) {
-        return { ...t, completed: !t.isCompleted };
+        return { ...t, isCompleted: !t.isCompleted };
       }
       return t;
     });
