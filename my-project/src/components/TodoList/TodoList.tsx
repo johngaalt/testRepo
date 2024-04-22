@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography } from "@mui/material";
 import { TodoListProps } from "./TodoList.types";
 import TodoListItem from "../TodoListItem/TodoListItem";
 
@@ -10,21 +10,37 @@ function TodoList({
 }: TodoListProps) {
   return (
     <>
-      <Stack display="flex" direction="column" alignItems="center">
-        <Typography variant="h5">Active</Typography>
-        <TodoListItem
-          tasks={activeTasks}
-          onToggle={handleToggle}
-          onDelete={handleDelete}
-        />
-      </Stack>
-      <Stack display="flex" direction="column" alignItems="center">
-        <Typography variant="h5">Done</Typography>
-        <TodoListItem
-          tasks={doneTasks}
-          onToggle={handleToggle}
-          onDelete={handleDelete}
-        />
+      <Stack
+        display="flex"
+        direction="row"
+        justifyContent={"center"}
+        columnGap={10}
+      >
+        <Stack
+          display="flex"
+          direction="column"
+          justifyContent={"space-between"}
+        >
+          <Typography variant="h5" textAlign={"center"}>
+            Active
+          </Typography>
+          <TodoListItem
+            tasks={activeTasks}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+          />
+        </Stack>
+        <Divider orientation="vertical" flexItem />
+        <Stack display="flex" direction="column">
+          <Typography variant="h5" textAlign={"center"}>
+            Done
+          </Typography>
+          <TodoListItem
+            tasks={doneTasks}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+          />
+        </Stack>
       </Stack>
     </>
   );

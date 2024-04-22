@@ -44,6 +44,7 @@ function TodoItem({ tasks, setTasks }: TodoItemProps) {
         onSubmit={(e) => handleAddTask(e)}
         spacing={2}
         direction={"row"}
+        marginBottom={"20px"}
       >
         <TextField
           id="filled-basic"

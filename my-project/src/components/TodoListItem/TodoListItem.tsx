@@ -19,16 +19,13 @@ function TodoListItem({
     <>
       <List disablePadding>
         {tasks.map((task) => (
-          <ListItem key={`active-${task.id}`} dense>
+          <ListItem key={`task-${task.id}`} dense>
             <ListItemIcon>
               <Checkbox
                 edge="start"
                 checked={task.isCompleted}
                 tabIndex={-1}
                 disableRipple
-                inputProps={{
-                  "aria-labelledby": `checkbox-list-label-${task.id}`,
-                }}
                 onChange={() => handleToggle(task)}
               />
             </ListItemIcon>
