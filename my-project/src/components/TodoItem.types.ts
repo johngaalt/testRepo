@@ -7,5 +7,4 @@ export interface Task {
 export interface TodoItemProps {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-  task?: Task;
 }

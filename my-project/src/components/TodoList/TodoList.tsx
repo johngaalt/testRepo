@@ -21,7 +21,7 @@ function TodoList({
           direction="column"
           justifyContent={"space-between"}
         >
-          <Typography variant="h5" textAlign={"center"}>
+          <Typography variant="h5" textAlign={"center"} color={"primary"}>
             Active
           </Typography>
           <TodoListItem
@@ -32,7 +32,7 @@ function TodoList({
         </Stack>
         <Divider orientation="vertical" flexItem />
         <Stack display="flex" direction="column">
-          <Typography variant="h5" textAlign={"center"}>
+          <Typography variant="h5" textAlign={"center"} color={"gray"}>
             Done
           </Typography>
           <TodoListItem
