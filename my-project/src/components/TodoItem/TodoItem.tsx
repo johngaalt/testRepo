@@ -10,7 +10,7 @@ function TodoItem({ tasks, setTasks }: TodoItemProps) {
   const handleAddTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTask = {
-      id: tasks.length + 1,
+      id: Date.now(),
       text: inputValue,
       isCompleted: false,
       isActive: true,
