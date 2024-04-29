@@ -1,43 +1,65 @@
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
 
 describe("App Component Unit Tests", () => {
-  it("should allow a user to add a task", () => {
+  it("should allow a user to add a task", async () => {
     render(<App />);
     const input = screen.getByLabelText(/add a task/i);
     const addButton = screen.getByRole("button", { name: /add/i });
 
-    userEvent.type(input, "New Task");
-    userEvent.click(addButton);
+    await userEvent.type(input, "New Task");
+    await userEvent.click(addButton);
 
     expect(screen.queryByText("New Task")).toBeInTheDocument();
   });
 
-  it("handleToggle should update tasks correctly when toggledTask is completed", () => {
+  it("should check checkbox when a task is added and completed", async () => {
     render(<App />);
+    const input = screen.getByLabelText<HTMLInputElement>(/add a task/i);
+    const addButton = screen.getByRole<HTMLButtonElement>("button", {
+      name: /add/i,
+    });
 
-    // Simulate toggledTask being completed
+    await userEvent.type(input, "New Task");
+    await userEvent.click(addButton);
 
-    // Assert that the tasks are updated correctly
+    const checkbox = screen.getByRole("checkbox");
+    await userEvent.click(checkbox);
+
+    expect(checkbox).toBeChecked();
   });
 
-  it("handleToggle should update tasks correctly when toggledTask is not completed", () => {
+  it("should check checkbox when a task is added and not completed", async () => {
     render(<App />);
-    // Simulate toggledTask not being completed
-    // Assert that the tasks are updated correctly
+    const input = screen.getByLabelText<HTMLInputElement>(/add a task/i);
+    const addButton = screen.getByRole<HTMLButtonElement>("button", {
+      name: /add/i,
+    });
+
+    await userEvent.type(input, "New Task");
+    await userEvent.click(addButton);
+
+    const checkbox = screen.getByRole("checkbox");
+    await userEvent.click(checkbox);
+    await userEvent.click(checkbox);
+
+    expect(checkbox).not.toBeChecked();
   });
 
-  it("handleDelete should update tasks correctly when task is completed", () => {
+  it("should delete task from list when task is completed", async () => {
     render(<App />);
-    // Simulate task being completed
-    // Assert that the tasks are updated correctly
-  });
+    const input = screen.getByLabelText<HTMLInputElement>(/add a task/i);
+    const addButton = screen.getByRole<HTMLButtonElement>("button", {
+      name: /add/i,
+    });
 
-  it("handleDelete should update tasks correctly when task is not completed", () => {
-    render(<App />);
-    // Simulate task not being completed
-    // Assert that the tasks are updated correctly
+    await userEvent.type(input, "New Task");
+    await userEvent.click(addButton);
+
+    const deleteButton = screen.getByLabelText<HTMLButtonElement>("delete");
+    await userEvent.click(deleteButton);
+
+    expect(screen.queryByText("New Task")).toBeNull();
   });
 });

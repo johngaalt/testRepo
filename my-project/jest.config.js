@@ -3,7 +3,8 @@ const config = {
   testEnvironment: "jsdom",
   moduleNameMapper: {},
   transform: {
-    "^.+\\.(ts|tsx)?$": "ts-jest",
+    "^.+\\.(ts|tsx)?$": ["ts-jest"],
+    ".+\\.(png|svg|jpg|jpeg|gif|scss|css)$": "jest-transform-stub",
   },
   globals: {
     "ts-jest": {
