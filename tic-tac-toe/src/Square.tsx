@@ -1,4 +1,4 @@
-import { BoardProps } from "./App";
+import { BoardProps } from "./Board";
 
 export function Square({ value, onSquareClick }: BoardProps) {
   return (
