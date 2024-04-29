@@ -5,6 +5,13 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-dom",
+      "@testing-library/jest-dom"
+    ],
 
     /* Bundler mode */
     "moduleResolution": "bundler",

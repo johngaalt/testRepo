@@ -25,6 +25,7 @@ function App() {
       setActiveTasks(activeTasks.filter((task) => task.id !== id));
     }
   };
+
   return (
     <>
       <TodoItem tasks={activeTasks} setTasks={setActiveTasks} />

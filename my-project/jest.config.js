@@ -2,7 +2,6 @@ const config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   moduleNameMapper: {},
-  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
   transform: {
     "^.+\\.(ts|tsx)?$": "ts-jest",
   },
@@ -12,6 +11,7 @@ const config = {
     },
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  setupFilesAfterEnv: ["<rootDir>/jest/jest-setup.ts"],
 };
 
 export default config;
