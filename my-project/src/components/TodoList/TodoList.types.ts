@@ -5,6 +5,6 @@ export interface TodoListProps {
   doneTasks: Task[];
   onDelete: (task: Task) => void;
   onToggle: (task: Task) => void;
-  setActiveTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-  setDoneTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  setActiveTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
+  setDoneTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
 }
